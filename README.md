@@ -3,3 +3,4 @@ This is a basic todo app with raw HTML and a basic backend.
 - We have removed unnecessary backend calls  
 - file is used for now as a storage option
 - We can later switch to MongoDB
+![screenshot](./view.png)
