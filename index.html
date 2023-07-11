@@ -31,14 +31,16 @@
 
     // view todos event listener
     const viewAllItems = () => {
+        console.log({ isTableDisplayed })
         if (!isTableDisplayed) {
             fetch('http://localhost:3000/todos', {
                 method: 'GET'
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log({ data })
                     // Display the table only if it's not already displayed
-                    viewTodos(data);
+                    viewTodos(data.todoArray);
                     isTableDisplayed = true;
                 })
         }
@@ -105,7 +107,7 @@
                 completed: row.querySelector('input[type="checkbox"]').checked,
                 description: inputs[2].value
             };
-            if (isDifferent(oldItem, { id: itemId, ...updatedData })) {
+            if (isDifferent(oldItem, { _id: itemId, ...updatedData })) {
                 updateItem(itemId, updatedData)
                     .then(() => {
                         button.textContent = 'Edit';
@@ -137,7 +139,9 @@
         const table = document.createElement('table');
 
         const headerRow = document.createElement('tr');
-        const headers = Object.keys(jsonArray[0]);
+        let headers = Object.keys(jsonArray[0]);
+        headers.pop(); //get rid of __v header
+        console.log({ headers })
         headers.forEach((header) => {
             const th = document.createElement('th');
             th.textContent = header.toUpperCase();
@@ -163,6 +167,8 @@
                     input.value = item[key];
                     input.disabled = true;
                     td.appendChild(input);
+                } else if (key === '__v') {
+                    console.log('do nothing')
                 } else {
                     td.textContent = item[key];
                 }
@@ -174,8 +180,8 @@
             const editButton = document.createElement('button');
             editButton.textContent = 'Edit';
             editButton.addEventListener('click', () => {
-                console.log(`edit btn clicked with id: ${item.id}`)
-                toggleEditMode(editButton, tr, item.id, item);  // Call enableEditItem function passing the table row
+                console.log(`edit btn clicked with id: ${item._id}`)
+                toggleEditMode(editButton, tr, item._id, item);  // Call enableEditItem function passing the table row
                 // editItem(item.id); // Call editItem function passing the item id
             });
             tdEdit.appendChild(editButton);
@@ -186,8 +192,8 @@
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', () => {
-                console.log(`delete btn clicked with id: ${item.id}`)
-                deleteItem(item.id); // Call deleteItem function passing the item id
+                console.log(`delete btn clicked with id: ${item._id}`)
+                deleteItem(item._id); // Call deleteItem function passing the item id
             });
             tdDelete.appendChild(deleteButton);
             tr.appendChild(tdDelete);
