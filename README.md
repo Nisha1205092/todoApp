@@ -16,3 +16,32 @@ This is a basic todo app with raw HTML and a basic backend.
 - Store it in an .env file. 
 
 ![screenshot](./view.png)
+
+
+- #1 npm i -g vercel (install vercel CLI globally)
+- #2 Create an Express project
+- #3 Name the server file 'index.js'
+- #4 Add the start script inside 'package.json'
+- ```"scripts": {
+        "start": "node index.js"
+    },```
+- #5 Deploy to Vercel by running ```vercel``` in the CLI
+- #6 in the root dir, add 'vercel.json'
+- ```
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ]
+}```
+
+- #7 Run the command ```vercel``` again to build and deploy again
