@@ -8,7 +8,7 @@
     const addTodoItem = () => {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
-        fetch('http://localhost:3000/todos', {
+        fetch('https://vercel-todo-backend-nisha1205092.vercel.app/todos', {
             method: "POST",
             body: JSON.stringify({
                 title,
@@ -33,7 +33,7 @@
     const viewAllItems = () => {
         console.log({ isTableDisplayed })
         if (!isTableDisplayed) {
-            fetch('http://localhost:3000/todos', {
+            fetch('https://vercel-todo-backend-nisha1205092.vercel.app/todos', {
                 method: 'GET'
             })
                 .then(res => res.json())
@@ -61,7 +61,7 @@
     }
 
     const deleteItem = (itemId) => {
-        fetch(`http://localhost:3000/todos/${itemId}`, {
+        fetch(`https://vercel-todo-backend-nisha1205092.vercel.app/todos/${itemId}`, {
             method: 'DELETE'
         })
             .then(res => {
@@ -124,7 +124,7 @@
     };
 
     const updateItem = (id, updatedData) => {
-        return fetch(`http://localhost:3000/todos/${id}`, {
+        return fetch(`https://vercel-todo-backend-nisha1205092.vercel.app/todos/${id}`, {
             method: 'PUT',
             body: JSON.stringify(updatedData),
             headers: {
