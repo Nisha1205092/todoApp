@@ -18,7 +18,7 @@ This is a basic todo app with raw HTML and a basic backend.
 ![screenshot](./view.png)
 
 
-- #1 npm i -g vercel (install vercel CLI globally)
+- #1 run ```npm i -g vercel``` (to install vercel CLI globally)
 - #2 Create an Express project
 - #3 Name the server file 'index.js'
 - #4 Add the start script inside 'package.json'
@@ -27,8 +27,7 @@ This is a basic todo app with raw HTML and a basic backend.
     },```
 - #5 Deploy to Vercel by running ```vercel``` in the CLI
 - #6 in the root dir, add 'vercel.json'
-- ```
-{
+- ```{
     "version": 2,
     "builds": [
         {
