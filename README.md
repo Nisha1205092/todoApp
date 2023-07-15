@@ -40,6 +40,6 @@ This is a basic todo app with raw HTML and a basic backend.
             "src": "/(.*)",
             "dest": "/"
         }
-    ]}```
+    ]}
 
 - #7 Run the command ```vercel``` again to build and deploy again
