@@ -9,4 +9,5 @@ This is a basic todo app with raw HTML and a basic backend.
 - to 'http://localhost:3000'
 - to deploy on vercel
 - [follow this article](https://andrewbaisden.medium.com/how-to-deploy-a-node-express-app-to-vercel-6fa567a041e2)
+
 ![screenshot](./view.png)
