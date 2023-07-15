@@ -4,12 +4,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const { fetchAllTodos, saveATodo, Todos } = require('./utils');
+const path = require('path');
+
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
+
+app.get('/', (req, res) => {
+    return res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+})
 
 app.get('/todos', async (req, res) => {
     const todoArray = await fetchAllTodos();
@@ -68,4 +74,5 @@ app.delete('/todos/:id', async (req, res) => {
     return res.send();
 })
 
-app.listen(3000, () => console.log('todo server running on 3000'))
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Todo Server running on ${port}, http://localhost:${port}`));

@@ -4,11 +4,13 @@
 <script>
     // Variable to keep track of whether the table is already displayed
     let isTableDisplayed = false;
+    // let baseUrl = 'https://vercel-todo-backend-nisha1205092.vercel.app';
+    let baseUrl = 'http://localhost:3000';
 
     const addTodoItem = () => {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
-        fetch('https://vercel-todo-backend-nisha1205092.vercel.app/todos', {
+        fetch(`${baseUrl}/todos`, {
             method: "POST",
             body: JSON.stringify({
                 title,
@@ -33,7 +35,7 @@
     const viewAllItems = () => {
         console.log({ isTableDisplayed })
         if (!isTableDisplayed) {
-            fetch('https://vercel-todo-backend-nisha1205092.vercel.app/todos', {
+            fetch(`${baseUrl}/todos`, {
                 method: 'GET'
             })
                 .then(res => res.json())
@@ -61,7 +63,7 @@
     }
 
     const deleteItem = (itemId) => {
-        fetch(`https://vercel-todo-backend-nisha1205092.vercel.app/todos/${itemId}`, {
+        fetch(`${baseUrl}/todos/${itemId}`, {
             method: 'DELETE'
         })
             .then(res => {
@@ -124,7 +126,7 @@
     };
 
     const updateItem = (id, updatedData) => {
-        return fetch(`https://vercel-todo-backend-nisha1205092.vercel.app/todos/${id}`, {
+        return fetch(`${baseUrl}/todos/${id}`, {
             method: 'PUT',
             body: JSON.stringify(updatedData),
             headers: {
