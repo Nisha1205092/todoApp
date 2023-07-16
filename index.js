@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
 
 app.get('/todos', async (req, res) => {
     const todoArray = await fetchAllTodos();
-    if (todoArray.length === 0) {
-        return res.status(404).json({ message: 'empty' })
-    }
+    // if (todoArray.length === 0) {
+    //     return res.status(404).json({ message: 'empty' })
+    // }
     return res.json({ todoArray });
 });
 
