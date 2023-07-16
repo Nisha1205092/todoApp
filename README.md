@@ -43,3 +43,5 @@ This is a basic todo app with raw HTML and a basic backend.
     ]}
 
 - #7 Run the command ```vercel``` again to build and deploy again
+
+- However, this project is deployed directly from github to Vercel
