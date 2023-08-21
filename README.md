@@ -26,7 +26,7 @@ and add the '/' end point serving the 'index.html' file
 - #4 Add the start script inside 'package.json'
 ```json 
 {
-"scripts": {
+    "scripts": {
         "start": "node index.js"
     },
 }
