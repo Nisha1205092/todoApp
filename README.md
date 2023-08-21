@@ -27,7 +27,8 @@ This is a basic todo app with raw HTML and a basic backend.
     },```
 - #5 Deploy to Vercel by running ```vercel``` in the CLI
 - #6 in the root dir, add 'vercel.json'
-- ```json
+- 
+```json
 {
     "version": 2,
     "builds": [
@@ -43,7 +44,6 @@ This is a basic todo app with raw HTML and a basic backend.
         }
     ]
 }
-
 ```
 
 - #7 Run the command ```vercel``` again to build and deploy again
